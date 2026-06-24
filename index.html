@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لكِ يا رنا ❤️ | رسالة حب تفاعلية</title>
+  <meta name="description" content="موقع خاص وتفاعلي مصمم بلمسات فاخرة من أجل رنا، يحتوي على رسالة حب وعداد ذكرى مميز.">
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Cinzel:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Hearts Background Canvas -->
+  <canvas id="hearts-canvas"></canvas>
+
+  <!-- Sound Toggle Control (Always available after login) -->
+  <div id="sound-control" class="hidden">
+    <button id="music-toggle-btn" class="glass-btn" aria-label="تشغيل/إيقاف الموسيقى">
+      <i class="fas fa-volume-mute"></i>
+    </button>
+  </div>
+
+  <!-- Reset State Control (Quiet, elegant button in the corner to clear local storage and replay) -->
+  <div id="reset-control" class="hidden">
+    <button id="replay-btn" class="glass-btn-small" aria-label="إعادة التشغيل">
+      <i class="fas fa-redo-alt"></i>
+    </button>
+  </div>
+
+  <!-- Screen Loader (Elegant preloader) -->
+  <div id="screen-loader" class="loader-overlay">
+    <div class="loader-content">
+      <div class="loader-heart"></div>
+      <div class="loader-text">يتم تحضير شيء مميز لكِ...</div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <main id="app-container">
+
+    <!-- SCREEN 1: Lock Screen (Password Entry) -->
+    <section id="screen-lock" class="screen-view active">
+      <div class="lock-wrapper">
+        <h1 class="love-logo animate-love">LOVE</h1>
+        <div class="password-box glass-panel">
+          <p class="password-hint">أدخلي كلمة المرور الخاصة بكِ للدخول</p>
+          <div class="input-group">
+            <input type="password" id="password-input" placeholder="كلمة المرور..." autocomplete="off">
+            <button id="password-submit" class="submit-btn" aria-label="تأكيد كلمة المرور">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+          </div>
+          <p id="password-error" class="error-msg hidden">كلمة المرور غير صحيحة، حاولِ مجددًا ❤️</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: First Letter (Typing Animation) -->
+    <section id="screen-letter1" class="screen-view">
+      <div class="letter-wrapper glass-panel">
+        <div class="letter-header">
+          <i class="fas fa-heart letter-icon-glow"></i>
+        </div>
+        <div class="letter-body">
+          <div id="letter1-text-container" class="typing-container"></div>
+        </div>
+        <div class="letter-footer">
+          <button id="btn-love-transition" class="action-btn neon-glow hidden">
+            <span>LOVE</span>
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: History & Live Counter -->
+    <section id="screen-counter" class="screen-view">
+      <div class="counter-wrapper glass-panel">
+        <div class="anniversary-date" id="display-date-text">05 / 03 / 2026</div>
+        <h2 class="anniversary-title" id="anniversary-description-text">من اليوم ده بدأت أجمل قصة في حياتي ❤️</h2>
+        
+        <div class="counter-container">
+          <div class="counter-box">
+            <span class="counter-number" id="days-val">00</span>
+            <span class="counter-label">أيام</span>
+          </div>
+          <div class="counter-box">
+            <span class="counter-number" id="hours-val">00</span>
+            <span class="counter-label">ساعات</span>
+          </div>
+          <div class="counter-box">
+            <span class="counter-number" id="minutes-val">00</span>
+            <span class="counter-label">دقائق</span>
+          </div>
+          <div class="counter-box">
+            <span class="counter-number" id="seconds-val">00</span>
+            <span class="counter-label">ثواني</span>
+          </div>
+        </div>
+        
+        <button id="btn-continue-transition" class="action-btn neon-glow hidden">
+          <span>متابعة</span>
+          <i class="fas fa-arrow-left"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: Final Message & Pulsating Heart -->
+    <section id="screen-final" class="screen-view">
+      <div class="letter-wrapper glass-panel">
+        <div class="letter-body">
+          <div id="letter2-text-container" class="typing-container"></div>
+        </div>
+        <div id="final-heart-container" class="heart-pulse-container hidden">
+          <div class="beating-heart"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Audio Elements -->
+  <audio id="audio-background" loop preload="auto"></audio>
+  <audio id="audio-click" preload="auto"></audio>
+
+  <!-- Javascript Logic -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
